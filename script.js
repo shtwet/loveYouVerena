@@ -13,6 +13,7 @@ letter.addEventListener("click", (e) => {
   console.log("click");
   document.getElementById("letter1").classList.add("up");
   document.querySelector(".envelope-flap").style.zIndex = "-1";
+  document.getElementById("letter1").classList.add("big");
 });
 
 
@@ -21,6 +22,7 @@ document.querySelector("#openEnvelope").addEventListener("click", () => {
   document.querySelector(".envelope").classList.add("active");
 
 });
+
 
 
 
