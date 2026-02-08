@@ -278,34 +278,6 @@ body { background-color: darkred; }
   }
 }
 
-.closeLetter {
-  font-size: 0 !important;
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: none;
-  box-shadow: none;
-  padding: 0;
-  border: 0;
-}
-
-.closeLetter:hover,
-.closeLetter:active,
-.closeLetter:focus {
-  background-color: transparent;
-  color: var(--letter-text);
-  transform: translateX(-50%);
-  padding: 0;
-  margin: 0;
-}
-
-.closeLetter:hover::before,
-.closeLetter:active::before,
-.closeLetter:focus::before {
-  content: "xXx";
-}
-
 /* Attribution */
 @import url("https://frills.dev/css/abstracts/_variables.css");
 @import url("https://frills.dev/css/components/_logo.css");
@@ -324,6 +296,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
