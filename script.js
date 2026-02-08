@@ -22,25 +22,27 @@ letter.addEventListener("click", (e) => {
 
   // Schritt 1: Startposition setzen
   const rect = letter.getBoundingClientRect();
-  letter.style.top = rect.top + "px";
+  letter.style.top = rect.top + "px"; // aktuelle Position fixieren
 
-  // Nächster Repaint, dann Transition starten
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => { // doppelte RAF sichert sanften Start
-      letter.style.transition = "top 2s ease"; // langsam nach oben
-      letter.style.top = "10px";
-    });
-  });
+  // Schritt 2: Transition vorbereiten (vorher keine Transition)
+  letter.style.transition = "none";
 
-  // Schritt 2: nach oben-Animation fertig → schnell vergrößern
+  // Schritt 3: kleiner Delay, damit Browser den Style übernimmt
+  setTimeout(() => {
+    letter.style.transition = "top 2s ease"; // langsam nach oben
+    letter.style.top = "10px";               // Zielposition
+  }, 20); // 20ms reichen meistens
+
+  // Schritt 4: nach oben → vergrößern
   letter.addEventListener("transitionend", function grow(e) {
-    if (e.propertyName !== "top") return; // nur bei top
+    if (e.propertyName !== "top") return;
     letter.removeEventListener("transitionend", grow);
     letter.style.transition = "all 0.5s ease"; // schnell vergrößern
     letter.style.width = "90%";
     letter.style.height = "90vh";
   });
 });
+
 
 // Close-Button Event
 const closeBtn = letter.querySelector(".closeLetter");
@@ -60,3 +62,4 @@ if (closeBtn) {
 document.querySelector("#openEnvelope").addEventListener("click", () => {
   document.querySelector(".envelope").classList.add("active");
 });
+
