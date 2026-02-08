@@ -11,7 +11,7 @@ let isExpanded = false;
 
 letter.addEventListener("click", (e) => {
   console.log("click");
-  document.getElementById("1").classList.add("up");
+  document.getElementById("letter1").classList.add("up");
 });
 
 
@@ -19,6 +19,7 @@ letter.addEventListener("click", (e) => {
 document.querySelector("#openEnvelope").addEventListener("click", () => {
   document.querySelector(".envelope").classList.add("active");
 });
+
 
 
 
