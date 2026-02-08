@@ -10,11 +10,9 @@ letter.classList.add("center");
 let isExpanded = false;
 
 letter.addEventListener("click", (e) => {
-  console.log("click");
-  document.querySelector(".envelope-flap").style.zIndex = "-1";
-  document.getElementById("letter1").style.zIndex = "2";
-  document.getElementById("letter1").classList.add("up");
-  document.getElementById("letter1").classList.add("big");
+  flap.style.zIndex = "-1"; // Klappe nach hinten
+  letter.classList.add("up");  // Hochfahren
+  letter.classList.add("big"); // Vergrößern
   
 });
 
@@ -24,6 +22,7 @@ document.querySelector("#openEnvelope").addEventListener("click", () => {
   document.querySelector(".envelope").classList.add("active");
 
 });
+
 
 
 
