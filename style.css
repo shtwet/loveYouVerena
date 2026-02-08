@@ -20,8 +20,9 @@
   position: absolute;
   left: 50%;
   bottom: 0;
-  translate: -50% 0;
+  transform: translateX(-50%);
   transition: transform 0.4s ease 1.5s, bottom 1.5s ease;
+  z-index: 1;
 }
 
 #letter1.up {
