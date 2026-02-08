@@ -22,14 +22,14 @@ letter.addEventListener("click", (e) => {
       const screenHeight = window.innerHeight;
       const screenWidth = window.innerWidth;
 
-      box.style.width = (screenWidth * 0.9) + 'px'; // 90% der Bildschirmbreite
-      box.style.height = (screenHeight * 0.9) + 'px'; // 90% der Bildschirmhöhe
-      box.style.left = (screenWidth * 0.05) + 'px';  // zentrieren
-      box.style.top = (screenHeight * 0.05) + 'px';  // zentrieren
+      letter.style.width = (screenWidth * 0.9) + 'px'; // 90% der Bildschirmbreite
+      letter.style.height = (screenHeight * 0.9) + 'px'; // 90% der Bildschirmhöhe
+      letter.style.left = (screenWidth * 0.05) + 'px';  // zentrieren
+      letter.style.top = (screenHeight * 0.05) + 'px';  // zentrieren
     }
 
-    let currentTop = parseInt(box.style.top);
-    box.style.top = (currentTop - step) + 'px';
+    let currentTop = parseInt(letter.style.top);
+    letter.style.top = (currentTop - step) + 'px';
     distanceMoved += step;
   }, 20);
 });
@@ -39,5 +39,6 @@ letter.addEventListener("click", (e) => {
 document.querySelector("#openEnvelope").addEventListener("click", () => {
   document.querySelector(".envelope").classList.add("active");
 });
+
 
 
