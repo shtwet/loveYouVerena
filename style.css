@@ -16,6 +16,16 @@
   --heart-bg: darkred;
   --heart-text: white;
 }
+#1 {
+  position: absolute;
+  left: 390px;
+  bottom: 0;
+  transition: bottom 1.5s ease;
+}
+
+#1.up {
+  bottom: 200px;
+}
 
 @media (min-width: 650px) {
   :root {
@@ -296,6 +306,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
