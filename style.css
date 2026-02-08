@@ -1,51 +1,32 @@
 body {
-  height: 100vh;
   margin: 0;
-  background: #800000; /* dunkles Rot wie Bild */
+  height: 100vh;
+  background: #800000;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Dancing Script', cursive;
   user-select: none;
-  font-family: 'Dancing Script', cursive; /* handschriftlicher Stil */
 }
 
-/* Umschlag */
+/* Umschlag-Container */
 #envelope {
   position: relative;
   width: 300px;
   height: 200px;
-  background: #ffe6c2; /* helles Kuvert */
-  cursor: pointer;
-  transition: all 0.6s ease;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-/* Umschlag-Klappe */
-.flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: 150px;
-  background: #ffdca2;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  transform-origin: top;
-  transition: transform 0.6s ease;
-  z-index: 2;
+  perspective: 1000px;
 }
 
 /* Brief */
 #letter {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
   width: 260px;
   height: 160px;
-  background: #fff0e0;
+  background: #fff5e6;
+  bottom: 20px;
+  left: 20px;
   padding: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   cursor: grab;
   transition: transform 0.6s;
   z-index: 1;
@@ -57,8 +38,47 @@ body {
   line-height: 1.4;
 }
 
+/* Umschlag Klappen */
+.flap {
+  position: absolute;
+  background: #ffe6b3;
+  box-shadow: inset -2px -2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.8s ease;
+}
+
+/* Oberseite (Spitze) */
+.flap-top {
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 150px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  z-index: 3;
+}
+
+/* Linke Seite */
+.flap-left {
+  bottom: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 100%);
+  z-index: 2;
+}
+
+/* Rechte Seite */
+.flap-right {
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+  z-index: 2;
+}
+
 /* Umschlag geöffnet */
-#envelope.open .flap {
+#envelope.open .flap-top {
   transform: rotateX(180deg);
 }
 
