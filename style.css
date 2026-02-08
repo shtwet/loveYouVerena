@@ -7,7 +7,7 @@
   --envelope-bg: Moccasin;
   --envelope-shadow: Peru;
   --letter-x: 250px;
-  --letter-y: calc(150px - 1rem - 10px);
+  --letter-y: calc(250px - 1rem - 10px);
   --letter-bg: AntiqueWhite;
   --letter-shadow: BurlyWood;
   --letter-text: #180d07;
@@ -225,7 +225,7 @@ body { background-color: darkred; }
 .letter {
   box-sizing: border-box;
   font-family: var(--letter-font);
-  font-size: 1rem;
+  font-size: 0,5rem;
   line-height: 1.1;
   background-color: var(--letter-bg);
   color: var(--letter-text);
@@ -332,6 +332,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
