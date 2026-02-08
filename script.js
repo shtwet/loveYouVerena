@@ -20,16 +20,17 @@ letter.addEventListener("click", (e) => {
   letter.style.zIndex = zIndexCounter++;
   letter.style.overflow = "auto";
 
-  // Schritt 1: langsam nach oben fahren
-  // aktuelle Position als Startwert
+  // Schritt 1: Startposition setzen
   const rect = letter.getBoundingClientRect();
   letter.style.top = rect.top + "px";
 
-  // minimal Timeout nötig, damit transition greift
-  setTimeout(() => {
-    letter.style.transition = "top 2s ease";
-    letter.style.top = "10px";
-  }, 10);
+  // Nächster Repaint, dann Transition starten
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => { // doppelte RAF sichert sanften Start
+      letter.style.transition = "top 2s ease"; // langsam nach oben
+      letter.style.top = "10px";
+    });
+  });
 
   // Schritt 2: nach oben-Animation fertig → schnell vergrößern
   letter.addEventListener("transitionend", function grow(e) {
