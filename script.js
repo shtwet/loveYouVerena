@@ -12,15 +12,16 @@ let isExpanded = false;
 letter.addEventListener("click", (e) => {
   console.log("click");
   document.getElementById("letter1").classList.add("up");
+  document.querySelector(".envelope-flap").style.zIndex = "-1";
 });
 
 
 // Umschlag öffnen
 document.querySelector("#openEnvelope").addEventListener("click", () => {
   document.querySelector(".envelope").classList.add("active");
-  document.querySelector(".envelope-flap").style.zIndex = "-1";
 
 });
+
 
 
 
