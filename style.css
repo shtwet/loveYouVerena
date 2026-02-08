@@ -43,6 +43,7 @@ body { background-color: darkred; }
 
 #letter1.big {
   transform: scale(2.5);
+  zIndex: 4;
 }
 
 
@@ -313,6 +314,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
