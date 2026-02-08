@@ -18,7 +18,10 @@ letter.addEventListener("click", (e) => {
 // Umschlag öffnen
 document.querySelector("#openEnvelope").addEventListener("click", () => {
   document.querySelector(".envelope").classList.add("active");
+  document.querySelector(".envelope-flap").style.zIndex = "-1";
+
 });
+
 
 
 
