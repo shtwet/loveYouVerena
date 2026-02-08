@@ -7,7 +7,7 @@
   --envelope-bg: Moccasin;
   --envelope-shadow: Peru;
   --letter-x: 250px;
-  --letter-y: calc(250px - 1rem - 10px);
+  --letter-y: calc(200px - 1rem - 10px);
   --letter-bg: AntiqueWhite;
   --letter-shadow: BurlyWood;
   --letter-text: #180d07;
@@ -332,6 +332,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
