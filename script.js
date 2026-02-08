@@ -1,58 +1,43 @@
-const letters = Array.from(document.querySelectorAll(".letter"));
+const letter = document.querySelector(".letter"); // nur ein Brief
 const lettersContainer = document.querySelector(".letters");
 let zIndexCounter = 10;
 
-// Sortiere die Briefe nach der numerischen ID
-letters.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+// Brief zentrieren
+const center = document.querySelector(".cssletter").offsetWidth / 2 - letter.offsetWidth / 2;
+letter.style.left = `${center}px`;
+letter.classList.add("center");
 
-letters.forEach((letter) => {
-  lettersContainer.appendChild(letter);
+let isExpanded = false;
 
-  // Briefe zentrieren
-  const center = document.querySelector(".cssletter").offsetWidth / 2 - letter.offsetWidth / 2;
-  letter.style.left = `${center}px`;
+// Klick auf Brief → langsam nach oben und vergrößern
+letter.addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON") return;
+  if (isExpanded) return;
 
-  // Prüfen, ob der Brief überläuft
-  function isOverflown(element) {
-    return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+  isExpanded = true;
+  letter.style.transition = "all 2s ease"; // viel langsamer
+  letter.style.position = "fixed";
+  letter.style.top = "10px";           // fährt nach oben
+  letter.style.left = "50%";           // mittig
+  letter.style.transform = "translateX(-50%)";
+  letter.style.width = "90%";          // groß
+  letter.style.height = "90vh";
+  letter.style.zIndex = zIndexCounter++;
+  letter.style.overflow = "auto";      // Scrollbar falls Inhalt groß
+
+  // Close-Button Event
+  const closeBtn = letter.querySelector(".closeLetter");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      isExpanded = false;
+      letter.style.transition = "all 1s ease"; // langsam zurück
+      letter.style.width = "";
+      letter.style.height = "";
+      letter.style.left = `${center}px`;
+      letter.style.top = "1rem";
+      letter.style.transform = "";
+    }, { once: true });
   }
-
-  if (!isOverflown(letter)) {
-    letter.classList.add("center");
-  }
-
-  let isExpanded = false;
-
-  // Klick auf Brief → nach oben fahren & vergrößern
-  letter.addEventListener("click", (e) => {
-    if (e.target.tagName === "BUTTON") return;
-    if (isExpanded) return;
-
-    isExpanded = true;
-    letter.style.transition = "all 0.5s ease"; // sanfte Animation
-    letter.style.position = "fixed";
-    letter.style.top = "10px";
-    letter.style.left = "50%";
-    letter.style.transform = "translateX(-50%)";
-    letter.style.width = "90%";
-    letter.style.height = "90vh";
-    letter.style.zIndex = zIndexCounter++;
-    letter.style.overflow = "auto"; // Scrollbar, falls Inhalt groß
-
-    // Close-Button Event
-    const closeBtn = letter.querySelector(".closeLetter");
-    if (closeBtn) {
-      closeBtn.addEventListener("click", () => {
-        isExpanded = false;
-        letter.style.transition = "all 0.5s ease";
-        letter.style.width = "";
-        letter.style.height = "";
-        letter.style.left = `${center}px`;
-        letter.style.top = "1rem";
-        letter.style.transform = "";
-      }, { once: true });
-    }
-  });
 });
 
 // Umschlag öffnen
