@@ -55,7 +55,7 @@ body { background-color: darkred; }
 
 .envelope::before {
   content: "˚ʚ❤︎ɞ˚";
-  font-size: 5rem;
+  font-size: 2rem;
   color: white;
   position: absolute;
   left: 50%;
@@ -332,6 +332,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
