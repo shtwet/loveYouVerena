@@ -21,13 +21,21 @@ letter.addEventListener("click", (e) => {
   letter.style.overflow = "auto";
 
   // Schritt 1: langsam nach oben fahren
-  letter.style.transition = "top 2s ease"; // langsam
-  letter.style.top = "10px";
+  // aktuelle Position als Startwert
+  const rect = letter.getBoundingClientRect();
+  letter.style.top = rect.top + "px";
+
+  // minimal Timeout nötig, damit transition greift
+  setTimeout(() => {
+    letter.style.transition = "top 2s ease";
+    letter.style.top = "10px";
+  }, 10);
 
   // Schritt 2: nach oben-Animation fertig → schnell vergrößern
-  letter.addEventListener("transitionend", function grow() {
+  letter.addEventListener("transitionend", function grow(e) {
+    if (e.propertyName !== "top") return; // nur bei top
     letter.removeEventListener("transitionend", grow);
-    letter.style.transition = "all 0.5s ease"; // schnell
+    letter.style.transition = "all 0.5s ease"; // schnell vergrößern
     letter.style.width = "90%";
     letter.style.height = "90vh";
   });
