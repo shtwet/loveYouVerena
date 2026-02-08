@@ -10,7 +10,7 @@ letter.classList.add("center");
 let isExpanded = false;
 
 letter.addEventListener("click", (e) => {
-  letter.style.width = (screenWidth * 0.9) + 'px';
+  document.getElementById("1").classList.add("up");
 });
 
 
@@ -18,6 +18,7 @@ letter.addEventListener("click", (e) => {
 document.querySelector("#openEnvelope").addEventListener("click", () => {
   document.querySelector(".envelope").classList.add("active");
 });
+
 
 
 
