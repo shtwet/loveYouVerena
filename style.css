@@ -39,6 +39,10 @@
 html { font-size: 20px; }
 body { background-color: darkred; }
 
+.big {
+  transform: scale(1.2); /* 20% größer */
+}
+
 .cssletter {
   position: relative;
   width: 100%;
@@ -305,6 +309,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
