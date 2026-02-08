@@ -2,51 +2,53 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Brief Animation</title>
+  <title>Realistisches Kuvert</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="envelope">
+    <div class="flap"></div>
+    <div id="letter">
+      <p>°♡°<br><br>
+      In a world that often feels chaotic, your love is my sanctuary. Your silly jokes and heartfelt hugs remind me every day that life is a precious adventure worth celebrating.<br><br>
+      Freya Jane</p>
+    </div>
+  </div>
 
-<div id="envelope" class="closed">
-  <div class="flap"></div>
-  <div id="letter">💌</div>
-</div>
+  <script>
+    const envelope = document.getElementById("envelope");
+    const letter = document.getElementById("letter");
 
-<script>
-  const envelope = document.getElementById("envelope");
-  const letter = document.getElementById("letter");
+    let isDragging = false;
+    let offsetX, offsetY;
 
-  let isDragging = false;
-  let offsetX, offsetY;
+    // Umschlag öffnen
+    envelope.addEventListener("click", () => {
+      envelope.classList.add("open");
+    });
 
-  // Umschlag öffnen
-  envelope.addEventListener("click", () => {
-    envelope.classList.add("open");
-  });
+    // Brief anklicken → in den Vordergrund
+    letter.addEventListener("mousedown", (e) => {
+      e.stopPropagation();
+      isDragging = true;
+      letter.style.position = "absolute";
+      letter.style.zIndex = 1000;
 
-  // Brief anklicken → in den Vordergrund
-  letter.addEventListener("mousedown", (e) => {
-    e.stopPropagation(); // verhindert Umschlag-Klick
-    isDragging = true;
-    letter.style.position = "absolute";
-    letter.style.zIndex = 1000;
+      offsetX = e.clientX - letter.offsetLeft;
+      offsetY = e.clientY - letter.offsetTop;
+    });
 
-    offsetX = e.clientX - letter.offsetLeft;
-    offsetY = e.clientY - letter.offsetTop;
-  });
+    // Ziehen
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      letter.style.left = e.clientX - offsetX + "px";
+      letter.style.top = e.clientY - offsetY + "px";
+    });
 
-  // Ziehen
-  document.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    letter.style.left = e.clientX - offsetX + "px";
-    letter.style.top = e.clientY - offsetY + "px";
-  });
-
-  // Loslassen
-  document.addEventListener("mouseup", () => {
-    isDragging = false;
-  });
-</script>
-
+    // Loslassen
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+  </script>
 </body>
 </html>
