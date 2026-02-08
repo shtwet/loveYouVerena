@@ -1,53 +1,63 @@
 body {
   height: 100vh;
   margin: 0;
-  background: #f2f2f2;
+  background: #800000; /* dunkles Rot wie Bild */
   display: flex;
   justify-content: center;
   align-items: center;
   user-select: none;
+  font-family: 'Dancing Script', cursive; /* handschriftlicher Stil */
 }
 
 /* Umschlag */
 #envelope {
   position: relative;
-  width: 200px;
-  height: 130px;
-  background: #e0c097;
+  width: 300px;
+  height: 200px;
+  background: #ffe6c2; /* helles Kuvert */
   cursor: pointer;
-  transition: transform 0.6s;
+  transition: all 0.6s ease;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  overflow: hidden;
+  border-radius: 8px;
 }
 
-/* Klappe */
+/* Umschlag-Klappe */
 .flap {
   position: absolute;
   top: 0;
-  width: 0;
-  height: 0;
-  border-left: 100px solid transparent;
-  border-right: 100px solid transparent;
-  border-top: 70px solid #d4aa70;
+  left: 0;
+  width: 300px;
+  height: 150px;
+  background: #ffdca2;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top;
-  transition: transform 0.6s;
+  transition: transform 0.6s ease;
+  z-index: 2;
 }
 
 /* Brief */
 #letter {
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   left: 20px;
-  width: 160px;
-  height: 100px;
-  background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 40px;
+  width: 260px;
+  height: 160px;
+  background: #fff0e0;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   cursor: grab;
   transition: transform 0.6s;
+  z-index: 1;
 }
 
-/* Geöffnet */
+#letter p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Umschlag geöffnet */
 #envelope.open .flap {
   transform: rotateX(180deg);
 }
