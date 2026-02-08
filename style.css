@@ -18,8 +18,9 @@
 }
 #letter1 {
   position: absolute;
-  left: 390px;
+  left: 50%;
   bottom: 0;
+  translate: -50% 0;
   transition: transform 0.4s ease 1.5s, bottom 1.5s ease;
 }
 
@@ -40,7 +41,7 @@ html { font-size: 20px; }
 body { background-color: darkred; }
 
 #letter1.big {
-  transform: scale(2.5), translate(-50%, -50%);;
+  transform: scale(2.5);
 }
 
 
@@ -310,6 +311,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
