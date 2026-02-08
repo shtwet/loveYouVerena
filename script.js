@@ -12,7 +12,7 @@ let isExpanded = false;
 letter.addEventListener("click", (e) => {
   console.log("click");
   document.querySelector(".envelope-flap").style.zIndex = "-1";
-  document.querySelector(".letter1").style.zIndex = "+2";
+  document.getElementById("letter1").style.zIndex = "2";
   document.getElementById("letter1").classList.add("up");
   document.getElementById("letter1").classList.add("big");
   
@@ -24,6 +24,7 @@ document.querySelector("#openEnvelope").addEventListener("click", () => {
   document.querySelector(".envelope").classList.add("active");
 
 });
+
 
 
 
