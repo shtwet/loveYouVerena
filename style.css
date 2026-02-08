@@ -20,7 +20,7 @@
   position: absolute;
   left: 390px;
   bottom: 0;
-  transition: bottom 1.5s ease;
+  transition: transform 0.4s ease 1.5s, bottom 1.5s ease;
 }
 
 #letter1.up {
@@ -39,11 +39,7 @@
 html { font-size: 20px; }
 body { background-color: darkred; }
 
-.letter {
-  transition: transform 0.4s ease;
-}
-
-.letter.big {
+#letter1.big {
   transform: scale(1.2);
 }
 
@@ -314,6 +310,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
