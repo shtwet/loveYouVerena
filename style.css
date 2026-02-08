@@ -16,14 +16,14 @@
   --heart-bg: darkred;
   --heart-text: white;
 }
-#1 {
+#letter1 {
   position: absolute;
   left: 390px;
   bottom: 0;
   transition: bottom 1.5s ease;
 }
 
-#1.up {
+#letter1.up {
   bottom: 200px;
 }
 
@@ -247,7 +247,6 @@ body { background-color: darkred; }
   margin: 0;
   cursor: grab;
   position: absolute;
-  top: 1rem;
   overflow: auto;
   text-align: center;
   border: 0;
@@ -306,6 +305,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
