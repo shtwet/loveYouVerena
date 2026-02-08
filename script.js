@@ -10,56 +10,34 @@ letter.classList.add("center");
 let isExpanded = false;
 
 letter.addEventListener("click", (e) => {
-  if (e.target.tagName === "BUTTON") return;
-  if (isExpanded) return;
+ let distanceMoved = 0;
+  const step = 2;
+  const targetDistance = 50;
 
-  isExpanded = true;
-  letter.style.position = "fixed";
-  letter.style.left = "50%";
-  letter.style.transform = "translateX(-50%)";
-  letter.style.zIndex = zIndexCounter++;
-  letter.style.overflow = "auto";
+  const moveInterval = setInterval(() => {
+    if (distanceMoved >= targetDistance) {
+      clearInterval(moveInterval);
 
-  // Schritt 1: Startposition setzen
-  const rect = letter.getBoundingClientRect();
-  letter.style.top = rect.top + "px"; // aktuelle Position fixieren
+      // 2. Box auf fast die ganze Bildschirmhöhe vergrößern
+      const screenHeight = window.innerHeight;
+      const screenWidth = window.innerWidth;
 
-  // Schritt 2: Transition vorbereiten (vorher keine Transition)
-  letter.style.transition = "none";
+      box.style.width = (screenWidth * 0.9) + 'px'; // 90% der Bildschirmbreite
+      box.style.height = (screenHeight * 0.9) + 'px'; // 90% der Bildschirmhöhe
+      box.style.left = (screenWidth * 0.05) + 'px';  // zentrieren
+      box.style.top = (screenHeight * 0.05) + 'px';  // zentrieren
+    }
 
-  // Schritt 3: kleiner Delay, damit Browser den Style übernimmt
-  setTimeout(() => {
-    letter.style.transition = "top 2s ease"; // langsam nach oben
-    letter.style.top = "10px";               // Zielposition
-  }, 20); // 20ms reichen meistens
-
-  // Schritt 4: nach oben → vergrößern
-  letter.addEventListener("transitionend", function grow(e) {
-    if (e.propertyName !== "top") return;
-    letter.removeEventListener("transitionend", grow);
-    letter.style.transition = "all 0.5s ease"; // schnell vergrößern
-    letter.style.width = "90%";
-    letter.style.height = "90vh";
-  });
+    let currentTop = parseInt(box.style.top);
+    box.style.top = (currentTop - step) + 'px';
+    distanceMoved += step;
+  }, 20);
 });
 
-
-// Close-Button Event
-const closeBtn = letter.querySelector(".closeLetter");
-if (closeBtn) {
-  closeBtn.addEventListener("click", () => {
-    isExpanded = false;
-    letter.style.transition = "all 1s ease"; // zurück
-    letter.style.width = "";
-    letter.style.height = "";
-    letter.style.left = `${center}px`;
-    letter.style.top = "1rem";
-    letter.style.transform = "";
-  });
-}
 
 // Umschlag öffnen
 document.querySelector("#openEnvelope").addEventListener("click", () => {
   document.querySelector(".envelope").classList.add("active");
 });
+
 
