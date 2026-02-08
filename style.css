@@ -290,14 +290,6 @@ body { background-color: darkred; }
   border: 0;
 }
 
-.closeLetter::before {
-  content: "˚ʚ❤︎ɞ˚";
-  font-size: 1.5rem !important;
-  font-family: var(--letter-font);
-  color: var(--letter-button-text);
-  text-align: center;
-}
-
 .closeLetter:hover,
 .closeLetter:active,
 .closeLetter:focus {
@@ -332,6 +324,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
