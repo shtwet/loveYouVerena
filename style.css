@@ -24,7 +24,7 @@
 }
 
 #letter1.up {
-  bottom: 200px;
+  bottom: 400px;
 }
 
 @media (min-width: 650px) {
@@ -305,6 +305,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
