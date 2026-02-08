@@ -222,7 +222,8 @@ body { background-color: darkred; }
   font-family: var(--letter-font);
 }
 
-.envelope.active * {
+.envelope.active .envelope-flap,
+.envelope.active .heart {
   pointer-events: none;
 }
 
@@ -312,6 +313,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
