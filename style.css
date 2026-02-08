@@ -3,7 +3,7 @@
 /* Variablen */
 :root {
   --envelope-x: 300px;
-  --envelope-y: 200px;
+  --envelope-y: 190px;
   --envelope-bg: Moccasin;
   --envelope-shadow: Peru;
   --letter-x: 250px;
@@ -310,6 +310,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
