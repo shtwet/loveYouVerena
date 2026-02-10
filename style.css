@@ -46,21 +46,10 @@ html { font-size: 20px; }
 body { background-color: darkred; }
 
 #letter1.big {
-  position: fixed; /* fixiert auf Bildschirm */
-  left: 50%;
-  top: 50%;
-  bottom: auto; 
-  transform: translate(-50%, -50%);
-  width: 90vw;      /* max 90% der Breite */
-  max-width: 400px; /* Desktopbegrenzung */
-  max-height: 90vh; /* max Höhe */
-  overflow-y: auto; 
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Text oben beginnen */
+  position: fixed; /* fixiert am Viewport */
+  left: 50%;   /* entfernt alte bottom */
+  transform: translate(-50%, 100%) scale(1.5);
   z-index: 4;
-  transition: all 0.6s ease;
 }
 .envelope.active .envelope-flap,
 .envelope.active .heart {
@@ -338,6 +327,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
