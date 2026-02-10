@@ -28,7 +28,7 @@
 }
 
 #letter1.up {
-  bottom: 400px;   /* fährt aus dem Umschlag nach oben */
+  bottom: 180px;   /* fährt aus dem Umschlag nach oben */
 }
 .envelope.active .envelope-folds {
   pointer-events: none;
@@ -48,7 +48,7 @@ body { background-color: darkred; }
 #letter1.big {
   position: fixed; /* fixiert am Viewport */
   left: 50%;   /* entfernt alte bottom */
-  transform: translate(-50%, 70%) scale(1.8);
+  transform: translate(-50%, -50%) scale(1.2);
   z-index: 4;
 }
 .envelope.active .envelope-flap,
@@ -327,6 +327,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
