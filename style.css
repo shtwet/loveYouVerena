@@ -46,10 +46,21 @@ html { font-size: 20px; }
 body { background-color: darkred; }
 
 #letter1.big {
-  position: fixed; /* fixiert am Viewport */
-  left: 50%;   /* entfernt alte bottom */
-  transform: translate(-50%, 100%) scale(1.5);
+  position: fixed;       /* am Viewport fixiert */
+  left: 50%;             /* horizontal zentriert */
+  top: 50%;              /* vertikal starten */
+  transform: translate(-50%, -50%) scale(1.5); /* exakte Zentrierung */
   z-index: 4;
+
+  width: 90vw;           /* fast gesamte Breite auf Handy */
+  max-width: 500px;      /* Desktop-Begrenzung */
+  max-height: 90vh;      /* maximal 90% der Höhe */
+  overflow-y: auto;      /* scrollbar falls Text zu lang */
+  
+  padding: 2rem 1rem;    /* Abstand innen */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;  /* Text oben beginnen */
 }
 .envelope.active .envelope-flap,
 .envelope.active .heart {
@@ -327,6 +338,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
