@@ -51,6 +51,16 @@ body { background-color: darkred; }
   transform: translate(-50%, 100%) scale(1.5);
   z-index: 4;
 }
+
+
+@media (max-width: 600px) {
+  #letter1.big {
+    top: 5vh;                   /* Abstand vom oberen Rand */
+    transform: translateX(-50%); /* nur horizontal zentrieren */
+    max-height: 90vh;            /* Höhe Viewport */
+  }
+}
+
 .envelope.active .envelope-flap,
 .envelope.active .heart {
   pointer-events: none; /* nur Flap und Herz blockieren */
@@ -327,6 +337,7 @@ footer {
 footer svg {
   width: 100px;
 }
+
 
 
 
